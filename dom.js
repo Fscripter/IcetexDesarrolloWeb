@@ -48,3 +48,7 @@ for (let i = 0; i < Inventario.length; i++) {
 
   document.body.appendChild(divPadre);
 }
+
+var objeto1 = {
+  color: "rojo",
+};
