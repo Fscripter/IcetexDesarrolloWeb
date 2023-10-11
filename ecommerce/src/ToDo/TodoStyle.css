@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ToDo-Main {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+.TaskList {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: auto;
+}
+.Task {
+  display: flex;
+  height: 35px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightblue;
+}
