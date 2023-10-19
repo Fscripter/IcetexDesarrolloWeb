@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createRequest(event) {
+        event.preventDefault();
+
+        let file = {
+          name: document.getElementById("fileName").value,
+          content: document.getElementById("fileContent").value,
+        };
+
+        console.log(file);
+
+        fetch("https://9vvsflbw-3000.use2.devtunnels.ms/file", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(file),
+        })
+          .then((response) => {
+            response.json();
+          })
+          .then((data) => {
+            console.log(data);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form action="" onsubmit="createRequest(event);">
+      <input type="text" name="" id="fileName" placeholder="nombre usuario" />
+      <input type="password" name="" id="fileContent" placeholder="password" />
+      <input type="submit" value="Crear archivo y enviar" />
+    </form>
+  </body>
+</html>
