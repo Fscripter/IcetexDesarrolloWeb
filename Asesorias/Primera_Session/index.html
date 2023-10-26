@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      fetch("http://localhost:300", {
+        method: "GET",
+        mode: "no-cors",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((e) => {
+          console.log("Hubo un error");
+        });
+    </script>
+  </head>
+  <body>
+    <form action=""></form>
+  </body>
+</html>

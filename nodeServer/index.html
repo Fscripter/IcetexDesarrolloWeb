@@ -15,12 +15,11 @@
 
         console.log(file);
 
-        fetch("https://9vvsflbw-3000.use2.devtunnels.ms/file", {
+        fetch("https://localhost:3000", {
           headers: {
             "Content-Type": "application/json",
           },
-          method: "POST",
-          body: JSON.stringify(file),
+          method: "GET",
         })
           .then((response) => {
             response.json();

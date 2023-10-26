@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100vh;
+      }
+      body,
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+    <script src="./validar.js" defer></script>
+  </head>
+  <body>
+    <form onsubmit="validarFormulario(event)">
+      <label for="nombre">nombre</label>
+      <input type="text" name="nombre" id="nombre" required />
+      <label for="apellidos">apellidos</label>
+      <input type="text" name="apellidos" id="apellidos" required />
+      <label for="email">email</label>
+      <input type="email" name="email" id="email" required />
+      <input type="submit" value="Registrarse" />
+    </form>
+  </body>
+</html>

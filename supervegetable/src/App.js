@@ -1,56 +1,35 @@
 import React, { useState, useEffect } from "react";
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Login } from "./Components/Login/Login";
-
-function Card(props) {
+function User(props) {
   return (
-    <div class="card">
-      <img src={props.img} class="card-img-top" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">{props.title}</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk of the card's
-          content.
-        </p>
-        <a href="#" class="btn btn-primary">
-          Go somewhere
-        </a>
-      </div>
+    <div>
+      <p>{props.name}</p>
+      <p>
+        <i>{props.lastname}</i>
+      </p>
     </div>
   );
 }
+
 function App() {
-  const [data, setData] = useState([]);
-  const [loaded, setLoaded] = useState(false);
-  const pokemons = ["pikachu", "ditto", "gengar"];
+  const [info, setInfo] = useState("");
 
   useEffect(() => {
-    //Fetch para extraer datos del pokemon
-
-    if (!loaded) {
-      pokemons.forEach((pokemon) => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            setData((arrayViejo) => [
-              ...arrayViejo,
-              <Card title={data.name} img={data.sprites.front_default}></Card>,
-            ]);
-          });
-      });
-
-      setLoaded(true);
-    }
-  }, [loaded]);
+    fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setInfo(<User name={data.resultado[0].name} lastname={data.resultado[0].lastname}></User>);
+      })
+      .catch((e) => console.log(e));
+  }, []);
   return (
     <div className="App">
-      <div className="container d-flex justify-content-around">
-        <Login></Login>
-        <div className="col-3">{data}</div>
-      </div>
+      <h1>Hola soy el componente App</h1>
+      <Link to="/login">Ir a login</Link>
+      {info != "" ? info : null}
     </div>
   );
 }
